@@ -34,8 +34,41 @@ To convert all files in a given folder, run:
 convert-all-srt-vtt.sh
 ```
 
-## Important note
+## Overlapping captions
 
-The start and end times for each caption can be interleaved, but showing interleaved captions is only supported on some players.
+When using `.srt`, the start and end times for each caption can overlap.
 
-This script manipulates the timestamps to de-interleave them.
+Example input file (notice how the end time of each caption is after the start time of the next caption):
+
+```
+1
+00:00:00,030 --> 00:00:04,920
+hello and welcome to my course on coding
+
+2
+00:00:02,730 --> 00:00:06,930
+with flutter by taking this course you
+
+3
+00:00:04,920 --> 00:00:09,510
+will learn how to use flutter to build
+```
+
+Unfortunately, not all players support overlapping captions.
+
+So this script manipulates the timestamps, so that each caption starts exactly at the end of the previous one.
+
+Example output file:
+
+```
+WEBVTT
+
+00:00:00.030 --> 00:00:02.730
+hello and welcome to my course on coding
+
+00:00:02.730 --> 00:00:04.920
+with flutter by taking this course you
+
+00:00:04.920 --> 00:00:06.930
+will learn how to use flutter to build
+```
