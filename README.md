@@ -2,29 +2,27 @@
 
 This script can be used to convert subtitles from Srt to VTT format.
 
-## Example workflow: Generate VTT subtitles for an existing video
+## Example workflow: Generate VTT subtitles for your own videos
 
-### (Optional) Upload Video to YouTube and generate Closed Captions
+### Upload Video to YouTube and generate Closed Captions
 
 - Upload video: [https://www.youtube.com/upload](https://www.youtube.com/upload)
 - Open with the (old) Creator Studio
 - Set video as unlisted (if this should not be public)
 - Once video is uploaded, select Subtitles/CC tab and wait until CCs are published (auto-generated)
+- Then Click on the Generated CC and download the subtitles in `.srt` format.
 
-## Download Video
+**NOTE**: YouTube supports downloading captions in VTT format as well. But the VTT format used is not supported by all players (e.g. Udemy).
 
-- Install [4K Video Downloader](https://www.4kdownload.com)
-- Copy video Url
-- Paste link in 4K Video Downloader
-- Download in 360p (saves disk space), and choose subtitles
-
-This will download .mp4 and .srt files for the video
+Hence, this script was created to convert `.srt` to "simple" `.vtt`.
 
 ## Convert
 
 Run:
 
-`convert-srt-vtt.sh` file.srt
+```
+convert-srt-vtt.sh file.srt
+```
 
 This will output a `file.srt.vtt` file.
 
