@@ -28,7 +28,11 @@ This will output a `file.srt.vtt` file.
 
 ## Batch convert
 
-`convert-all-srt-vtt.sh` can be used to convert all files in a given folder.
+To convert all files in a given folder, run:
+
+```
+convert-all-srt-vtt.sh
+```
 
 ## Important note
 
